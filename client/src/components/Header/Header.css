@@ -1,0 +1,43 @@
+:root {
+    --header-height: 196px;
+}
+
+header {
+    width: 100%;
+    height: var(--header-height);
+    background-color: #303030;
+    display: flex;
+    justify-content: center;
+}
+
+/* Header Image */
+.header-image {
+    height: var(--header-height);
+}
+
+/* Header Content */
+.header-content {
+    display: flex;
+    width: calc(100% - 3rem);
+    justify-content: space-between;
+}
+
+/* Header Nav */
+.header-nav ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    height: 100%;
+}
+.header-nav ul li {
+    margin-top: 64px;
+    width: 230px;
+    height: 45px;
+}
+.header-nav ul li a {
+    color: #FCFCFC;
+    text-decoration: none;
+    font-family: "Gabarito";
+    font-size: 2rem;
+    text-align: center;
+}
