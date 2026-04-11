@@ -1,59 +1,84 @@
 import 'dotenv/config'
 import express from 'express'
 import cors from 'cors'
-import fs from 'node:fs'
-import path from 'node:path'
-import { fileURLToPath } from 'node:url'
-import db from './db.js'
+import pool from './db.js'
 
 const app = express()
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3001
 
 app.use(cors())
 app.use(express.json())
 
-app.get('/api/health', (req, res) => {
-    const row = db.prepare('SELECT datetime("now") AS now').get()
-    res.json({ ok: true, now: row.now })
-})
-
-app.get('/api/items', (req, res) => {
-    const rows = db.prepare('SELECT * FROM items ORDER BY id DESC').all()
-    res.json(rows)
-})
-
-app.post('/api/items', (req, res) => {
-    const { name } = req.body
-
-    if (!name) {
-        return res.status(400).json({ error: 'name is required' })
-    }
-
-    const info = db.prepare('INSERT INTO items (name) VALUES (?)').run(name)
-
-    res.status(201).json({
-        id: info.lastInsertRowid,
-        name,
-    })
-})
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-const clientDist = path.resolve(__dirname, '../client/dist')
-
-if (fs.existsSync(clientDist)) {
-    app.use(express.static(clientDist))
-
-    app.get('*', (req, res) => {
-        if (req.path.startsWith('/api')) {
-            res.status(404).json({ error: 'Not found' })
-            return
-        }
-
-        res.sendFile(path.join(clientDist, 'index.html'))
-    })
+async function initDb() {
+    await pool.query(`
+        CREATE TABLE IF NOT EXISTS items (
+            id SERIAL PRIMARY KEY,
+            name TEXT NOT NULL
+        )
+    `)
 }
 
-app.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}`)
+app.get('/api/health', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT NOW() AS now')
+        res.json({
+            ok: true,
+            now: result.rows[0].now,
+        })
+    } catch (err) {
+        console.error(err)
+        res.status(500).json({
+            ok: false,
+            error: 'Database error',
+        })
+    }
 })
+
+app.get('/api/items', async (req, res) => {
+    try {
+        const result = await pool.query(
+            'SELECT * FROM items ORDER BY id DESC'
+        )
+        res.json(result.rows)
+    } catch (err) {
+        console.error(err)
+        res.status(500).json({
+            error: 'Database error',
+        })
+    }
+})
+
+app.post('/api/items', async (req, res) => {
+    try {
+        const { name } = req.body
+
+        if (!name) {
+            return res.status(400).json({
+                error: 'name is required',
+            })
+        }
+
+        const result = await pool.query(
+            'INSERT INTO items (name) VALUES ($1) RETURNING id, name',
+            [name]
+        )
+
+        res.status(201).json(result.rows[0])
+    } catch (err) {
+        console.error(err)
+        res.status(500).json({
+            error: 'Database error',
+        })
+    }
+})
+
+initDb()
+    .then(() => {
+        app.listen(port, () => {
+            console.log(`Server running on http://localhost:${port}`)
+        })
+    })
+    .catch((err) => {
+        console.error('Failed to initialize database:', err)
+        process.exit(1)
+    })

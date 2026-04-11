@@ -1,17 +1,7 @@
-import Database from 'better-sqlite3'
-import fs from 'node:fs'
-import path from 'node:path'
+import pg from 'pg'
 
-const dataDir = path.resolve('data')
-fs.mkdirSync(dataDir, { recursive: true })
+const pool = new pg.Pool({
+    connectionString: process.env.DATABASE_URL,
+})
 
-const db = new Database(path.join(dataDir, 'app.db'))
-
-db.exec(`
-    CREATE TABLE IF NOT EXISTS items (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT NOT NULL
-    )
-`)
-
-export default db
+export default pool
