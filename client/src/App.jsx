@@ -2,23 +2,23 @@ import Header from "./components/Header/Header"
 import { Routes, Route } from "react-router-dom"
 
 function Home() {
-    return <h1>Home</h1>
+    return
 }
 
 function About() {
-    return <h1>About</h1>
+    return
 }
 
 function Services() {
-    return <h1>Services</h1>
+    return
 }
 
 function Portfolio() {
-    return <h1>Portfolio</h1>
+    return
 }
 
 function Contact() {
-    return <h1>Contact</h1>
+    return
 }
 
 export default function App() {
