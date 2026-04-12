@@ -1,16 +1,8 @@
-import { useState } from "react"
-
-export default function HeaderHamburger() {
-    const [navOpen, setNavOpen] = useState(false)
-
-    function handleNavOpenClick() {
-        setNavOpen((open) => !open)
-    }
-
+export default function HeaderHamburger({ navOpen, toggleNav }) {
     return (
         <button
             type="button"
-            onClick={handleNavOpenClick}
+            onClick={toggleNav}
             className={`menu-btn ${navOpen ? "open" : ""}`}
             aria-label="Toggle menu"
             aria-expanded={navOpen}

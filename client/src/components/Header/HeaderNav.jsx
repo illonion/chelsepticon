@@ -20,9 +20,7 @@ function NavItem({ to, label }) {
     )
 }
 
-export default function HeaderNav() {
-    const webpageList = ["about", "services", "portfolio", "contact"]
-
+export default function HeaderNav({webpageList}) {
     return (
         <nav className="header-nav">
             <ul>
