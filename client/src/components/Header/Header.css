@@ -58,7 +58,7 @@ header.header-open {
     font-family: "Gabarito";
     font-size: 2rem;
 }
-.header-nav ul li a.header-nav-highlight {
+.header-nav ul li a.header-nav-highlight, .header-hamburger-nav-content ul li a.header-nav-highlight {
     color: #F985A4;
     font-weight: 700;
 }
@@ -153,6 +153,7 @@ header.header-open {
     text-decoration: none;
     width: 100%;
     display: inline-block;
+    line-height: 40px;
 }
 
 /* All media queries */
@@ -166,7 +167,7 @@ header.header-open {
     }
 
     header.header-open {
-        height: 513px;
+        height: 519px;
     }
 }
 
