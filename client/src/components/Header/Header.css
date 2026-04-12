@@ -19,8 +19,12 @@ header.header-open {
 
 /* Header Image */
 .header-image {
-    height: var(--header-height);
+    --height: 120px;
+    height: var(--height);
+    padding: calc((var(--header-height) - var(--height)) / 2) 0;
 }
+#header-logo-full { display: block }
+#header-logo-mini { display: none }
 
 /* Header Content */
 .header-content {
@@ -154,4 +158,9 @@ header.header-open {
     header.header-open {
         height: 451px;
     }
+}
+
+@media only screen and (max-width: 600px) {
+    #header-logo-full { display: none }
+    #header-logo-mini { display: block }
 }
