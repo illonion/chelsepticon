@@ -2,6 +2,7 @@ import "./Header.css"
 import logoFull from "../../assets/logo.png"
 import HeaderNav from "./HeaderNav"
 import { Link } from "react-router-dom"
+import HeaderHamburger from "./HeaderHamburger"
 
 export default function Header() {
     return (
@@ -15,6 +16,7 @@ export default function Header() {
                     />
                 </Link>
                 <HeaderNav />
+                <HeaderHamburger />
             </div>
         </header>
     )
