@@ -6,7 +6,7 @@ import { Link, NavLink } from "react-router-dom"
 import HeaderHamburger from "./HeaderHamburger"
 
 export default function Header() {
-    const webpageList = ["about", "services", "portfolio", "contact"]
+    const webpageList = ["home", "about", "services", "portfolio", "contact"]
     
     // Set Nav Open
     const [navOpen, setNavOpen] = useState(false)
@@ -31,7 +31,9 @@ export default function Header() {
                 <ul>
                     {webpageList.map((webpage) => (
                         <li key={webpage}>
-                            <NavLink to={`/${webpage}`}>{webpage.toUpperCase()}</NavLink>
+                            <NavLink to={webpage === "home" ? "/" : `/${webpage}`}>
+                                {webpage.toUpperCase()}
+                            </NavLink>
                         </li>
                     ))}
                 </ul>

@@ -14,7 +14,7 @@ header {
     transition: height 300ms ease-in-out;
 }
 header.header-open {
-    height: 416px;
+    height: var(--header-height);
 }
 
 /* Header Image */
@@ -81,19 +81,20 @@ header.header-open {
 
 /* Hamburger */
 .menu-btn {
-    width: 40px;
-    height: 30px;
+    width: 60px;
+    height: 40px;
     position: relative;
     border: 0;
     background: transparent;
     cursor: pointer;
     align-self: center;
+    display: none;
 }
 .menu-btn span {
     position: absolute;
     left: 0;
     width: 100%;
-    height: 4px;
+    height: 6px;
     background: #F0C4D0;
     border-radius: 999px;
     transition: 300ms ease;
@@ -138,4 +139,19 @@ header.header-open {
 .header-hamburger-nav-content ul li a {
     color: #FCFCFC;
     text-decoration: none;
+}
+
+/* All media queries */
+@media only screen and (max-width: 1890px) {
+    .header-nav {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    header.header-open {
+        height: 451px;
+    }
 }

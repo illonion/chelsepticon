@@ -9,7 +9,11 @@ function NavHighlight() {
 
 function NavItem({ to, label }) {
     return (
-        <NavLink to={to} className={({ isActive }) => isActive ? "header-nav-highlight" : ""}>
+        <NavLink
+            to={to}
+            className={({ isActive }) => isActive ? "header-nav-highlight" : ""}
+            end={to === "/"}
+        >
             {({ isActive }) => (
                 <>
                     {isActive && <NavHighlight />}
@@ -20,13 +24,16 @@ function NavItem({ to, label }) {
     )
 }
 
-export default function HeaderNav({webpageList}) {
+export default function HeaderNav({ webpageList }) {
     return (
         <nav className="header-nav">
             <ul>
                 {webpageList.map((webpage) => (
                     <li key={webpage}>
-                        <NavItem to={`/${webpage}`} label={webpage} />
+                        <NavItem 
+                            to={webpage === "home" ? "/" : `/${webpage}`} 
+                            label={webpage} 
+                        />
                     </li>
                 ))}
             </ul>
