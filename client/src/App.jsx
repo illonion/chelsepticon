@@ -1,4 +1,5 @@
 import Header from "./components/Header/Header"
+import Footer from "./components/Footer/Footer"
 import { Routes, Route } from "react-router-dom"
 
 function Home() {
@@ -32,6 +33,7 @@ export default function App() {
                 <Route path="/portfolio" element={<Portfolio />} />
                 <Route path="/contact" element={<Contact />} />
             </Routes>
+            <Footer />
         </>
     )
 }
