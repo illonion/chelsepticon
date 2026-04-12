@@ -1,16 +1,18 @@
 import { NavLink } from "react-router-dom"
 
+function NavHighlight() {
+    return <>
+        <div className="header-nav-highlight-overlay" />
+        <div className="header-nav-highlight-bottom" />
+    </>
+}
+
 function NavItem({ to, label }) {
     return (
-        <NavLink to={to} className="header-nav-highlight">
+        <NavLink to={to} className={({ isActive }) => isActive ? "header-nav-highlight" : ""}>
             {({ isActive }) => (
                 <>
-                    {isActive && (
-                        <>
-                            <div className="header-nav-highlight-overlay" />
-                            <div className="header-nav-highlight-bottom" />
-                        </>
-                    )}
+                    {isActive && <NavHighlight />}
                     {label.toUpperCase()}
                 </>
             )}
