@@ -15,7 +15,6 @@ export default function Header() {
     }
 
     return (
-        /* 2. Apply a class to the header based on state */
         <header className={navOpen ? "header-open" : ""}>
             <div className="header-content">
                 <Link to="/">
