@@ -141,10 +141,18 @@ header.header-open {
     list-style-type: none;
     font-family: "Gabarito";
     font-size: 2rem;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+}
+.header-hamburger-nav-content ul li {
+    padding: 0.75rem 0 0.75rem 1.5rem;
 }
 .header-hamburger-nav-content ul li a {
     color: #FCFCFC;
     text-decoration: none;
+    width: 100%;
+    display: inline-block;
 }
 
 /* All media queries */
@@ -158,7 +166,7 @@ header.header-open {
     }
 
     header.header-open {
-        height: 451px;
+        height: 513px;
     }
 }
 
