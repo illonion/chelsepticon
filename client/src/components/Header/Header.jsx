@@ -1,8 +1,9 @@
 import { useState } from "react"
-import { Link, NavLink } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 import HeaderNav from "./HeaderNav"
 import HeaderHamburger from "./HeaderHamburger"
+import HeaderHamburgerContent from "./HeaderHamburgerContent"
 
 import "./Header.css"
 import logoFull from "../../assets/logo.png"
@@ -30,22 +31,7 @@ export default function Header() {
                 <HeaderNav webpageList={webpageList} />
                 <HeaderHamburger navOpen={navOpen} toggleNav={toggleNav} />
             </div>
-            <div className="header-hamburger-nav-content">
-                <ul>
-                    {webpageList.map((webpage) => (
-                        <li key={webpage}>
-                            <NavLink
-                                to={webpage === "home" ? "/" : `/${webpage}`}
-                                end={webpage === "home"}
-                                className={({ isActive }) => isActive ? "header-nav-highlight" : ""}
-                                onClick={closeNav}
-                            >
-                                {webpage.toUpperCase()}
-                            </NavLink>
-                        </li>
-                    ))}
-                </ul>
-            </div>
+            <HeaderHamburgerContent webpageList={webpageList} closeNav={closeNav} />
         </header>
     )
 }
