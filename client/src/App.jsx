@@ -1,6 +1,7 @@
+import { Routes, Route } from "react-router-dom"
 import Header from "./components/Header/Header"
 import Footer from "./components/Footer/Footer"
-import { Routes, Route } from "react-router-dom"
+import Admin from "./components/Admin/Admin"
 
 function Home() {
     return
@@ -32,6 +33,7 @@ export default function App() {
                 <Route path="/services" element={<Services />} />
                 <Route path="/portfolio" element={<Portfolio />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/admin" element={<Admin />} />
             </Routes>
             <Footer />
         </>
