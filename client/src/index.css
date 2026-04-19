@@ -1,2 +1,14 @@
-body { margin: 0; }
+:root {
+    --desire-pink: #F0C4D0;
+    --off-black: #303030;
+    --emptiness: #FCFCFC;
+    --rosa: #F985A4;
+    --chafed-white: #F6DFCF;
+    --transparent-black: #0000
+}
+
+body {
+    margin: 0;
+    font-family: "Gabarito";
+}
 #root { margin: 0; }
