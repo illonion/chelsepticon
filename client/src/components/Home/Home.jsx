@@ -1,14 +1,14 @@
-import './Home.css'
+import styles from './Home.module.css'
 
 export default function Home() {
     return (
         <>
-            <section className="home-banner"></section>
-            <section className="tiles-background">
-                <div className="tiles-container">
-                    <div className="tile"></div>
-                    <div className="tile"></div>
-                    <div className="tile"></div>
+            <section className={styles['home-banner']}></section>
+            <section className={styles['tiles-background']}>
+                <div className={styles['tiles-container']}>
+                    <div className={styles.tile}></div>
+                    <div className={styles.tile}></div>
+                    <div className={styles.tile}></div>
                 </div>
             </section>
         </>

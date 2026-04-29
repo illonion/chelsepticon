@@ -1,9 +1,11 @@
 import { NavLink } from "react-router-dom"
 
+import styles from "./Header.module.css"
+
 function NavHighlight() {
     return <>
-        <div className="header-nav-highlight-overlay" />
-        <div className="header-nav-highlight-bottom" />
+        <div className={styles["header-nav-highlight-overlay"]} />
+        <div className={styles["header-nav-highlight-bottom"]} />
     </>
 }
 
@@ -11,7 +13,7 @@ function NavItem({ to, label }) {
     return (
         <NavLink
             to={to}
-            className={({ isActive }) => isActive ? "header-nav-highlight" : ""}
+            className={({ isActive }) => isActive ? styles["header-nav-highlight"] : ""}
             end={to === "/"}
         >
             {({ isActive }) => (
@@ -26,7 +28,7 @@ function NavItem({ to, label }) {
 
 export default function HeaderNav({ webpageList }) {
     return (
-        <nav className="header-nav">
+        <nav className={styles["header-nav"]}>
             <ul>
                 {webpageList.map((webpage) => (
                     <li key={webpage}>

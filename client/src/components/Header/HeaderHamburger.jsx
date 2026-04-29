@@ -1,9 +1,11 @@
+import styles from "./Header.module.css"
+
 export default function HeaderHamburger({ navOpen, toggleNav }) {
     return (
         <button
             type="button"
             onClick={toggleNav}
-            className={`menu-btn ${navOpen ? "open" : ""}`}
+            className={`${styles["menu-btn"]} ${navOpen ? styles.open : ""}`}
             aria-label="Toggle menu"
             aria-expanded={navOpen}
         >

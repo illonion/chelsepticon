@@ -1,5 +1,5 @@
 /* Footer */
-footer {
+.footer {
     width: 100%;
     min-height: 252px;
     background-color: var(--desire-pink);
@@ -24,7 +24,7 @@ footer {
 }
 
 /* Footer paragraphcs */
-footer .footer-texts p {
+.footer .footer-texts p {
     font-size: 1.25rem;
     text-align: center;
     margin: 0;

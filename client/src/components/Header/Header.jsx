@@ -5,7 +5,7 @@ import HeaderNav from "./HeaderNav"
 import HeaderHamburger from "./HeaderHamburger"
 import HeaderHamburgerContent from "./HeaderHamburgerContent"
 
-import "./Header.css"
+import styles from "./Header.module.css"
 import logoFull from "../../assets/logo.png"
 import logoMin from "../../assets/logo-min.png"
 
@@ -22,11 +22,11 @@ export default function Header() {
     }
 
     return (
-        <header className={navOpen ? "header-open" : ""}>
-            <div className="header-content">
+        <header className={navOpen ? `${styles.header} ${styles["header-open"]}` : styles.header}>
+            <div className={styles["header-content"]}>
                 <Link to="/" onClick={closeNav}>
-                    <img id="header-logo-full" className="header-image" src={logoFull} alt="Full Logo" />
-                    <img id="header-logo-mini" className="header-image" src={logoMin} alt="Mini Logo" />
+                    <img id="header-logo-full" className={styles["header-image"]} src={logoFull} alt="Full Logo" />
+                    <img id="header-logo-mini" className={styles["header-image"]} src={logoMin} alt="Mini Logo" />
                 </Link>
                 <HeaderNav webpageList={webpageList} />
                 <HeaderHamburger navOpen={navOpen} toggleNav={toggleNav} />
