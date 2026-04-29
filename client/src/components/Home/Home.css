@@ -1,0 +1,30 @@
+/* Top paart of the home page */
+.home-banner {
+    width: 100%;
+    color: var(--orochimirau);
+    aspect-ratio: 2.171945701357466 / 1;
+    min-height: 500px;
+}
+
+/* Tiles information */
+.tiles-background {
+    background-color: var(--off-black);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.tiles-container {
+    --gap: 100px;
+    margin: var(--gap) 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: calc(100% - (var(--gap) * 2));
+    gap: var(--gap);
+}
+.tile {
+    flex-grow: 1;
+    width: 400px;
+    height: 706px;
+    background-color: var(--orochimirau);
+}

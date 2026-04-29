@@ -1,11 +1,8 @@
 import { Routes, Route } from "react-router-dom"
 import Header from "./components/Header/Header"
 import Footer from "./components/Footer/Footer"
+import Home from "./components/Home/Home"
 import Admin from "./components/Admin/Admin"
-
-function Home() {
-    return
-}
 
 function About() {
     return
