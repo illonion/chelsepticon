@@ -1,38 +1,38 @@
-import { Routes, Route } from "react-router-dom"
-import Header from "./components/Header/Header"
-import Footer from "./components/Footer/Footer"
-import Home from "./components/Home/Home"
-import Admin from "./components/Admin/Admin"
+import { Routes, Route } from "react-router-dom";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import Home from "./components/Home/Home";
+import Admin from "./components/Admin/Admin";
 
 function About() {
-    return
+  return;
 }
 
 function Services() {
-    return
+  return;
 }
 
 function Portfolio() {
-    return
+  return;
 }
 
 function Contact() {
-    return
+  return;
 }
 
 export default function App() {
-    return (
-        <>
-            <Header />
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/portfolio" element={<Portfolio />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/admin" element={<Admin />} />
-            </Routes>
-            <Footer />
-        </>
-    )
+  return (
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/admin" element={<Admin />} />
+      </Routes>
+      <Footer />
+    </>
+  );
 }
